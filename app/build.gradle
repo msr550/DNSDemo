@@ -6,7 +6,7 @@ android {
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "com.msr.dnsdemo"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 25
         versionCode 44
         versionName "1.0"

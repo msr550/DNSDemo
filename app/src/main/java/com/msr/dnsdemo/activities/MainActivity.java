@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
@@ -186,8 +185,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        // startDiscovering();
-        startActivity(new Intent(this, SecondActivity.class));
+        startDiscovering();
+        // startActivity(new Intent(this, SecondActivity.class));
+        //   startActivity(new Intent(this, ThirdActivity.class));
     }
 
 
@@ -201,14 +201,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             protected void onPostExecute(Void unused) {
                 super.onPostExecute(unused);
                 final Activity d = mActivity.get();
-                getToast(MainActivity.this, "Phase2");
+                //  getToast(MainActivity.this, "Phase2");
                 phase3(d);
             }
 
             protected void onCancelled() {
                 super.onCancelled();
                 final Activity d = mActivity.get();
-                getToast(MainActivity.this, "Phase3:2");
+                //     getToast(MainActivity.this, "Phase3:2");
                 phase3(d);
             }
         }
@@ -220,7 +220,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
             protected void onPostExecute(Void unused) {
                 super.onPostExecute(unused);
-                getToast(MainActivity.this, "DBUpdateNic");
+                // getToast(MainActivity.this, "DBUpdateNic");
                 final Activity d = mActivity.get();
                 new DbUpdateProbes();
             }
@@ -253,13 +253,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private void phase3(final Context ctxt) {
         // Install Services DB
-        getToast(MainActivity.this, "Phase3");
-        getToast(MainActivity.this, "V:" + prefs.getInt(Prefs.KEY_RESET_SERVICESDB, Prefs.DEFAULT_RESET_SERVICESDB));
-        try {
+        // getToast(MainActivity.this, "Phase3");
+        //     getToast(MainActivity.this, "V:" + prefs.getInt(Prefs.KEY_RESET_SERVICESDB, Prefs.DEFAULT_RESET_SERVICESDB));
+      /*  try {
             getToast(MainActivity.this, "V::" + getPackageManager().getPackageInfo(PKG, 0).versionCode);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
-        }
+        }*/
         try {
             if (prefs.getInt(Prefs.KEY_RESET_SERVICESDB, Prefs.DEFAULT_RESET_SERVICESDB) != getPackageManager()
                     .getPackageInfo(PKG, 0).versionCode) {

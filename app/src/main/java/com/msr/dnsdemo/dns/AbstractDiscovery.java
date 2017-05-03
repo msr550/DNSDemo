@@ -3,6 +3,7 @@ package com.msr.dnsdemo.dns;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Vibrator;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.msr.dnsdemo.R;
@@ -59,7 +60,9 @@ public abstract class AbstractDiscovery extends AsyncTask<Void, HostBean, Void> 
                         Toast.makeText(mDiscover.get(), "Found::" + host[0].ipAddress, Toast.LENGTH_SHORT).show();
                         InetAddress address = null;
                         try {
+                            Log.i("===Rest", "===" + host[0].ipAddress);
                             address = InetAddress.getByName(host[0].ipAddress);
+                            //  Log.i("===Address","==="+address);
                            /* try {
                                 boolean reachable = address.isReachable(1000);
                                 String hostName = address.getCanonicalHostName();

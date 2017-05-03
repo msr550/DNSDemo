@@ -47,7 +47,7 @@ public class DbUpdate extends AsyncTask<Void, String, Void> {
         if (mActivity != null) {
             final Activity d = mActivity.get();
             if (d != null) {
-                Toast.makeText(d, "Dialog Displayed", Toast.LENGTH_SHORT).show();
+                //       Toast.makeText(d, "Dialog Displayed", Toast.LENGTH_SHORT).show();
                 cancel(true);
                 /*final AlertDialog.Builder dialog = new AlertDialog.Builder(d);
                 dialog
@@ -160,8 +160,7 @@ public class DbUpdate extends AsyncTask<Void, String, Void> {
         if (mActivity != null) {
             final Activity d = mActivity.get();
             if (d != null) {
-                Toast.makeText(d.getApplicationContext(), R.string.preferences_error3,
-                        Toast.LENGTH_SHORT).show();
+                //  Toast.makeText(d.getApplicationContext(), R.string.preferences_error3, Toast.LENGTH_SHORT).show();
             }
         }
     }
