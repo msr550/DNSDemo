@@ -16,8 +16,10 @@ import java.util.ArrayList;
 
 public class WifiApManager {
     private final WifiManager mWifiManager;
+    private IOnDeviceDetected iOnDeviceDetected = null;
 
     public WifiApManager(Context context) {
+        iOnDeviceDetected = (IOnDeviceDetected) context;
         mWifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
     }
 
@@ -29,7 +31,7 @@ public class WifiApManager {
      * @return ArrayList of {@link ClientScanResult}
      */
     public ArrayList<ClientScanResult> getClientList(boolean onlyReachables) {
-        return getClientList(onlyReachables, 300);
+        return getClientList(onlyReachables, 1000);
     }
 
     /**
@@ -56,7 +58,7 @@ public class WifiApManager {
 
                     if (mac.matches("..:..:..:..:..:..")) {
                         InetAddress inetAddress = InetAddress.getByName(splitted[0]);
-                        Log.i("===namr::", "===" + inetAddress);
+
                         boolean isReachable = false;
                         try {
                             if (inetAddress != null) {
@@ -67,8 +69,18 @@ public class WifiApManager {
                             e.printStackTrace();
                         }
 
-                        if (!onlyReachables || isReachable) {
+/*                        if (!onlyReachables || isReachable) {
                             result.add(new ClientScanResult(splitted[0], splitted[3], splitted[5], isReachable));
+                        }*/
+                        if (isReachable) {
+                            ClientScanResult clientScanResult = new ClientScanResult(splitted[0], splitted[3], splitted[5], isReachable);
+                            Log.i("===name::", "===" + inetAddress.getHostAddress());
+                            String hostName = inetAddress.getCanonicalHostName();
+                            String deviceName = inetAddress.getHostName();
+                            clientScanResult.setDeviceName(deviceName);
+                            clientScanResult.setName(hostName);
+                            result.add(clientScanResult);
+                            iOnDeviceDetected.onDeviceDetected(clientScanResult);
                         }
                     }
                 }

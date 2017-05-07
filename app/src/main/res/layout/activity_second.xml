@@ -5,9 +5,47 @@
     android:layout_height="match_parent"
     tools:context="com.msr.dnsdemo.activities.SecondActivity">
 
-    <TextView
-        android:id="@+id/textview"
+    <Button
+        android:id="@+id/searchBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true" />
+        android:onClick="onClick"
+        android:text="Search" />
+
+    <Button
+        android:id="@+id/nextBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/searchBtn"
+        android:onClick="onClick"
+        android:text="Next" />
+
+    <ProgressBar
+        android:id="@+id/pBar"
+        style="?android:attr/progressBarStyleInverse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:visibility="gone" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/searchBtn"
+        android:visibility="visible" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/searchBtn"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+    </ScrollView>
 </RelativeLayout>
