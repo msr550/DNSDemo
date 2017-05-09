@@ -18,6 +18,7 @@ import com.msr.dnsdemo.adapters.SecondAdapter;
 import com.msr.dnsdemo.second.ClientScanResult;
 import com.msr.dnsdemo.second.IOnDeviceDetected;
 import com.msr.dnsdemo.second.WifiApManager;
+import com.msr.dnsdemo.utils.CommonMethods;
 import com.msr.dnsdemo.utils.Logger;
 
 import java.io.BufferedReader;
@@ -48,6 +49,10 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         //     this.recyclerView.setNestedScrollingEnabled(false);
         this.adapter = new SecondAdapter(this.deviceInfoArrayList, getApplicationContext());
         recyclerView.setAdapter(this.adapter);
+        CommonMethods.getCurrentSsid(this);
+        CommonMethods.getCurrentSsid1(this);
+        CommonMethods.getWifiInfo(this);
+
         // scan();
 
     }
