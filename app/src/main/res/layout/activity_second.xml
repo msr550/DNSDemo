@@ -20,6 +20,22 @@
         android:onClick="onClick"
         android:text="Next" />
 
+    <Button
+        android:id="@+id/serverBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/nextBtn"
+        android:onClick="onClick"
+        android:text="Server" />
+
+    <Button
+        android:id="@+id/clientBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/serverBtn"
+        android:onClick="onClick"
+        android:text="Client" />
+
     <ProgressBar
         android:id="@+id/pBar"
         style="?android:attr/progressBarStyleInverse"

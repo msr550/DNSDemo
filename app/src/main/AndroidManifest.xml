@@ -15,12 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.NewMainActivity">
-
-        </activity>
-        <activity android:name=".activities.MainActivity">
-
-        </activity>
+        <activity android:name=".activities.NewMainActivity" />
+        <activity android:name=".activities.MainActivity" />
         <activity android:name=".activities.SecondActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,7 +25,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.ThirdActivity" />
-
+        <activity android:name=".activities.ServerActivity" />
+        <activity android:name=".activities.ClientActivity"></activity>
     </application>
 
 </manifest>

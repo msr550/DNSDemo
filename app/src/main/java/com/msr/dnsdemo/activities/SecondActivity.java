@@ -67,6 +67,12 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.nextBtn:
                 startActivity(new Intent(this, NewMainActivity.class));
                 break;
+            case R.id.serverBtn:
+                startActivity(new Intent(this, ServerActivity.class));
+                break;
+            case R.id.clientBtn:
+                startActivity(new Intent(this, ClientActivity.class));
+                break;
         }
     }
 
